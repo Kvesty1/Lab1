@@ -73,6 +73,35 @@ class NumberTransformer
 {
     public static void Run()
     {
-        
+        Console.WriteLine("\n--- Задача 2: Преобразование числа x в число n ---");
+        Console.Write("Введите число x (минимум 3 цифры): ");
+
+        // Преобразуем ввод в целое число
+        int x = int.Parse(Console.ReadLine());
+
+        // Преобразуем число в строку для работы с отдельными цифрами
+        string strX = x.ToString();
+
+        // Проверяем, что число содержит минимум 3 цифры
+        if (strX.Length < 3)
+        {
+            Console.WriteLine("Ошибка: число x должно содержать не менее 3 цифр!");
+            return;
+        }
+
+        // Получаем вторую цифру
+        char secondDigit = strX[1];
+
+        // Удаляем вторую цифру из числа
+        string strWithoutSecondDigit = strX.Remove(1, 1);
+
+        // Формируем новое число перемещением второй цифры
+        string strN = strWithoutSecondDigit + secondDigit;
+
+        // Преобразуем результат обратно в число
+        int n = int.Parse(strN);
+
+        // Выводим результат
+        Console.WriteLine($"Результат: n = {n}");
     }
 }
